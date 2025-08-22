@@ -112,6 +112,10 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@theme {
+  --color-brand-blue: #D0DCDC;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -122,8 +126,20 @@
 }
 @layer components {
 
+  h1,h2,h3,h4, h5 {
+    @apply tracking-tight font-medium 
+  }
+
+  .animations {
+    @apply transition-all duration-300 ease-in-out
+  }
+
   .section-padding {
     @apply py-24 md:py-24 lg:py-28 px-2 sm:px-4 lg:px-12;
+  }
+
+  .nav-link {
+    @apply uppercase  tracking-wider text-sm;
   }
 
 
