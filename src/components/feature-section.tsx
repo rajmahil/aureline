@@ -3,6 +3,7 @@ import { AspectRatio } from "./ui/aspect-ratio";
 import featureImage from "../../public/feature-image.png";
 import Image from "next/image";
 import { Button } from "./ui/button";
+import { ArrowRight } from "lucide-react";
 
 const FeatureSection = () => {
   return (
@@ -28,7 +29,10 @@ const FeatureSection = () => {
               rutrum quis libero non, lobortis mollis arcu.
             </p>
           </div>
-          <Button size="xl">Shop by Collection</Button>
+          <Button size="xl" variant={"link"} className="!px-0">
+            <span>Shop by Collection</span>
+            <ArrowRight className="!h-5 !w-5" strokeWidth={1.5} />
+          </Button>
         </div>
       </div>
     </section>
