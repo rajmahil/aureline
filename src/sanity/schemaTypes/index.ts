@@ -1,5 +1,12 @@
-import { type SchemaTypeDefinition } from "sanity";
+import { SchemaPluginOptions } from "sanity";
+import schemas from "@/sanity/schemas";
+import { SchemaTypeDefinition } from "sanity";
 
-export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [],
+// Ensure schemas is explicitly typed and only contains valid SchemaTypeDefinition objects
+const validSchemas: SchemaTypeDefinition[] = schemas as SchemaTypeDefinition[];
+
+export const schema: SchemaPluginOptions = {
+  types: validSchemas,
+  templates: (templates) =>
+    templates.filter((template) => template.schemaType !== "product"),
 };

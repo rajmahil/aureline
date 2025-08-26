@@ -66,7 +66,6 @@ export default function definePage(schema: PageDefinition) {
         initialValue: true,
         name: "indexable",
         type: "boolean",
-        validation: (Rule) => Rule.required(),
       }),
       defineField({
         description:

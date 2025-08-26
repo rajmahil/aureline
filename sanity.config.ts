@@ -13,16 +13,25 @@ import { apiVersion, dataset, projectId } from "./src/sanity/env";
 import { schema } from "./src/sanity/schemaTypes";
 import { structure } from "./src/sanity/structure";
 import schemas from "@/sanity/schemas";
+import { presentationTool } from "sanity/presentation";
 
 export default defineConfig({
   basePath: "/studio",
   projectId,
   dataset,
   // Add and edit the content schema in the './sanity/schemaTypes' folder
-  schema: {
-    types: schemas as typeof schema.types,
-  },
+  schema,
+
   plugins: [
+    presentationTool({
+      previewUrl: {
+        preview: "/",
+        previewMode: {
+          enable: "/api/draft",
+          disable: "/api/draft-draft",
+        },
+      },
+    }),
     structureTool({ structure }),
     // Vision is for querying with GROQ from inside the Studio
     // https://www.sanity.io/docs/the-vision-plugin
